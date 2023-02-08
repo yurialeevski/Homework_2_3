@@ -1,13 +1,8 @@
 package transport;
 
-public class Car {
+public class Car extends Transport{
     public static boolean summer = true;
-    private final String brand;
-    private final String model;
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String gearBox;
     private final String carBodyType;
     private String vehicleRegistrationNumber;
@@ -17,22 +12,19 @@ public class Car {
 
     public Car(String brand,
                String model,
-               double engineVolume,
-               String color,
                int year,
                String country,
+               String color,
+               int maxSpeed,
+               double engineVolume,
                String gearBox,
                String carBodyType,
                String vehicleRegistrationNumber,
                int numberOfCarSeats,
                boolean tiresWinterFalseSummerTrue,
                Key key) {
-        this.brand = (brand == null || brand.isBlank())? "default": brand;
-        this.model = (model == null || model.isBlank())? "default": model;
+        super(brand, model, year, country, color, maxSpeed);
         this.engineVolume = (engineVolume <=0)? 1.5: engineVolume;
-        this.color = (color == null || color.isBlank())? "белый": color;
-        this.year = (year <= 0)? 2000: year;
-        this.country = (country == null || country.isBlank())? "default": country;
         this.gearBox = (gearBox == null || gearBox.isBlank())? "default": gearBox;
         this.carBodyType = (carBodyType == null || carBodyType.isBlank())? "default": carBodyType;
         this.vehicleRegistrationNumber = (vehicleRegistrationNumber == null || vehicleRegistrationNumber.isBlank())? "default": vehicleRegistrationNumber;
@@ -43,13 +35,8 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
+        return "Car{" + super.toString() + '\'' +
                 ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", year=" + year +
-                ", country='" + country + '\'' +
                 ", gearBox='" + gearBox + '\'' +
                 ", carBodyType='" + carBodyType + '\'' +
                 ", vehicleRegistrationNumber='" + vehicleRegistrationNumber + '\'' +
@@ -59,38 +46,12 @@ public class Car {
                 '}';
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-
-    public String getModel() {
-        return model;
-    }
-
-
     public double getEngineVolume() {
         return engineVolume;
     }
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = (engineVolume <=0)? 1.5: engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = (color == null || color.isBlank())? "белый": color;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
     }
 
     public String getGearBox() {
