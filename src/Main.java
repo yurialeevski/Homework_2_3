@@ -24,6 +24,7 @@ public class Main {
         System.out.println("Смена шин на сезонные");
         ladaGranta.changeTireToSeason(2);
         System.out.println(ladaGranta);
+        System.out.println();
 
     }
 
